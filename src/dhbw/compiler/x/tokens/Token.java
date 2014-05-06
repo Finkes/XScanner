@@ -1,4 +1,5 @@
-package dhbw.compiler.x;
+package dhbw.compiler.x.tokens;
+
 
 /**
  * Created by dominik on 08/04/14.
@@ -16,7 +17,33 @@ public class Token {
         NULL,
         EOF,
         RANGE,
-        INVALID
+        INVALID,
+        FOR,
+        READ,
+        FLOATCONST,
+        BEGIN, 
+        INTCONST,
+        MORE,
+        LESS, 
+        MINUS,
+        SEMICOLON, 
+        DIV,
+        MULT,
+        COLON,
+        PLUS,
+        PRINT,
+        END, 
+        WHILE,
+        ASSIGN,
+        DOT,
+        EQUALS,
+        IF, 
+        ELSE,
+        INT,
+        THEN,
+        PROGRAM, 
+        ID, 
+        STRINGCONST
     }
 
     protected TokenType type;
@@ -31,6 +58,11 @@ public class Token {
         //this.symbol = SymbolTable.getInstance().put(data);
         this.type = type;
         //this.sourcePosition = sourcePosition;
+    }
+    
+    public Token(TokenType type, int row, int column)
+    {
+    	this.type = type;
     }
     
     public Token(TokenType type, String data, int row, int column)

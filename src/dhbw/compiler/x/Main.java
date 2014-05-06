@@ -5,6 +5,8 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import dhbw.compiler.x.tokens.Token;
+
 public class Main {
 
 	public static void main(String[] args)
@@ -20,7 +22,7 @@ public class Main {
 	        Token token;
 
 	        try {
-	            while ((token = scanner.getNextToken()) != null)
+	            while ((token = scanner.nextToken()) != null)
 	            {
 	                System.out.print(token.toString()+" ");
 	                tokens.add(token);
