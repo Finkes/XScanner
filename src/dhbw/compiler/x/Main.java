@@ -18,14 +18,14 @@ public class Main {
 
 	public static void main(String[] args)
 	{
-//		 InputStream stream = new ByteArrayInputStream("[1,1...a,1.0^223,12,12,1as1,12.12..12.12,null,..,NULL,12..12.....]".getBytes());
+		//InputStream stream = new ByteArrayInputStream("[1,1...a,1.0^223,12,12,1as1,12.12..12.12,null,..,NULL,12..12.....]".getBytes());
 
-		// InputStream stream = new ByteArrayInputStream("[123.314]".getBytes());
+		//InputStream stream = new ByteArrayInputStream("[123.314]".getBytes()); 
 		 
-		 FileInputStream stream;
+		FileInputStream stream;
 		try 
 		{
-			stream = new FileInputStream(new File("input/test.x"));
+			stream = new FileInputStream(new File("input/Test7.x"));
 			
 			Scanner scanner = new Scanner(stream);
 
@@ -45,19 +45,16 @@ public class Main {
             Parser parser = new Parser(tokens);
             Tree syntaxtree;
             
-            if((syntaxtree = parser.parse()) != null){
+            if((syntaxtree = parser.parse()) != null)
+            {
             	System.out.println("parsed successfull");
-            	
-            	System.out.println("");
-            	System.out.println(syntaxtree.toGraphviz());
             	
             	PrintWriter writer = new PrintWriter(new File("graphviz/graph"));
             	
             	writer.write(syntaxtree.toGraphviz());
             	
             	writer.close();
-            }
-            
+            }           
             else
             	System.out.println("parsed with failures");
 		        
@@ -67,9 +64,10 @@ public class Main {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		 catch (Exception e) {
-	            e.printStackTrace();
-	        }
+		catch (Exception e) 
+		{
+            e.printStackTrace();
+        }
 
 	      
 	       
