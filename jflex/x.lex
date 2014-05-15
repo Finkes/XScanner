@@ -5,13 +5,12 @@ package dhbw.compiler.x;
 import java_cup.runtime.*;
 import java.io.IOException;
 import dhbw.compiler.x.tokens.*;
-
+import dhbw.compiler.x.tokens.Token.TokenType;
 
 %%
 %type Token
 %function nextToken
 %class Scanner
-
 
 
 %unicode

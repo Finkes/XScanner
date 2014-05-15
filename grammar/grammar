@@ -1,0 +1,15 @@
+
+program 			::= program id ";" declarations block "."
+declarations 		::= { declaration }
+block				::= statements
+statements 			::= { statementWithSemi }
+statementWithSemi	::= statement ;
+statement			::= assignstat | condstat | whilestat | forstat | block
+condstat			::= if cond then statement else statement | if cond then statement
+cond				::= expr "<" expr | expr ">" expr | expr "=" expr
+whilestat			::= while "(" cond ")" statement
+forstat				::= for "(" assignstat ";" cond ";" assignstat ")" statement.
+assignstat			::= id ":=" expr ";"
+expr				::=  expr2 "+" expr | expr2 2"-" expr | expr2
+expr2				::= expr3 "*" expr2 | expr3 "/" expr2 | expr3
+expr3 				::= "-" int | int | "-" float | float | id | "(" expr ")" | string

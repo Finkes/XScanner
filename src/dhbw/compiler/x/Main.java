@@ -6,8 +6,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import dhbw.compiler.x.parser.Parser;
+import dhbw.compiler.x.parser.Tree;
 import dhbw.compiler.x.tokens.Token;
 import dhbw.compiler.x.tokens.Token.TokenType;
 
@@ -38,6 +41,25 @@ public class Main {
                 if(token.getType() == TokenType.EOF)
                 	break;
             }
+            
+            Parser parser = new Parser(tokens);
+            Tree syntaxtree;
+            
+            if((syntaxtree = parser.parse()) != null){
+            	System.out.println("parsed successfull");
+            	
+            	System.out.println("");
+            	System.out.println(syntaxtree.toGraphviz());
+            	
+            	PrintWriter writer = new PrintWriter(new File("graphviz/graph"));
+            	
+            	writer.write(syntaxtree.toGraphviz());
+            	
+            	writer.close();
+            }
+            
+            else
+            	System.out.println("parsed with failures");
 		        
 		} 
 		catch (FileNotFoundException e1) 

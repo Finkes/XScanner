@@ -11,7 +11,6 @@ public class Token {
         LBR,
         RBR,
         STRING,
-        INTEGER,
         FLOAT,
         COMMA,
         NULL,
@@ -43,7 +42,26 @@ public class Token {
         THEN,
         PROGRAM, 
         ID, 
-        STRINGCONST
+        STRINGCONST, 
+        NT_PROGRAM, 
+        NT_DECLARATION, 
+        NT_DECLARATIONS, 
+        NT_STATEMENTS,
+        NT_STATEMENT, 
+        NT_STATEMENT_WITH_SEMI,
+        NT_NASSIGNSTAT, 
+        NT_BLOCK, 
+        FOR_STATEMENT, 
+        WHILE_STATEMENT,
+        NT_CONDSTAT,
+        NT_CONDITION,
+        NT_SEXPRESSION, 
+        NT_FOR_STATEMENT, 
+        NT_WHILE_STATEMENT, 
+        NT_BLOCK_STATEMENT, 
+        NT_COND_STATEMENT, 
+        NT_ASSIGN_STATEMENT, STATEMENT, NT_EXPRESSION, NT_EXPRESSION2, NT_EXPRESSION3		
+
     }
 
     protected TokenType type;
@@ -52,6 +70,11 @@ public class Token {
     protected int sourceRow;
     protected int sourceColumn;
 
+    public Token(TokenType type)
+    {
+        this.type = type;
+    }
+    
     public Token(TokenType type, String data)
     {
         this.data = data;
